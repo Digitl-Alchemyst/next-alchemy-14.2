@@ -1,3 +1,65 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": ["next/core-web-vitals", "prettier", "plugin:react-hooks/recommended"],
+  "rules": {
+    "import/extensions": "off",
+    "import/no-cycle": "warn",
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": true,
+        "optionalDependencies": false,
+        "peerDependencies": false
+      }
+    ],
+    "import/no-named-as-default": "warn",
+    "import/no-named-as-default-member": "warn",
+    "import/no-unresolved": "off",
+    "import/no-useless-path-segments": "warn",
+    "import/order": "off",
+    "import/prefer-default-export": "warn",
+    "no-duplicate-imports": "warn",
+    "no-empty-function": "off",
+    "no-explicit-any": "off",
+    "no-extra-parens": "off",
+    "no-lone-blocks": "warn",
+    "react/destructuring-assignment": "warn",
+    // "react/function-component-definition": [
+    //   2,
+    //   {
+    //     "namedComponents": "arrow-function"
+    //   }
+    // ],
+    "react/jsx-curly-brace-presence": "warn",
+    "react/jsx-filename-extension": "off",
+    // "react/jsx-fragments": [2, "element"],
+    "react/jsx-indent": "off",
+    "react/jsx-indent-props": "off",
+    "react/jsx-one-expression-per-line": "off",
+    "react/jsx-props-no-spreading": "off",
+    "react/jsx-sort-props": [
+      "warn",
+      {
+        "ignoreCase": true,
+        "reservedFirst": false,
+        "noSortAlphabetically": true
+      }
+    ],
+    "react/no-access-state-in-setstate": "warn",
+    "react/no-array-index-key": "off",
+    "react/no-did-update-set-state": "off",
+    "react/no-find-dom-node": "warn",
+    "react/no-unused-state": "off",
+    "react/prefer-stateless-function": [
+      "warn",
+      {
+        "ignorePureComponents": true
+      }
+    ],
+    "react/prop-types": "off",
+    "react/require-default-prop": "off",
+    "react/require-default-props": "off",
+    "react/self-closing-comp": "warn",
+    "react/sort-comp": "warn",
+    "react/static-property-placement": ["warn", "static public field"]
+  }
 }
