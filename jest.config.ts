@@ -1,46 +1,26 @@
-import nextJest from 'next/jest.js';
+import type { Config } from 'jest';
+import nextJest from 'next/jest';
 
 const createJestConfig = nextJest({
-  // Provide the path to your Next.js root dir. to load next.config.js and .env files
   dir: './',
 });
 
-// Add any custom configs to be used by Jest below
-/** @type {import('jest').Config} */
-
-const customJestConfig = {
-  // use this option to enable/disable TypeScript support
-  tsConfig: './tsconfig.json',
-  // use this option to enable/disable eslint support
-  eslint: {
-    dirs: [
-      'src/app',
-      'arc/app/api',
-      'src/components',
-      'src/hooks',
-      'src/lib',
-      'src/store',
-      'src/lib/util',
-      '__test__',
-    ],
-  },
+const customJestConfig: Config = {
   setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
-  testPathIgnorePatterns: ['<rootDir>/.next/', '<rootDir>/node_modules/', '<rootDir>/.github'],
+  testEnvironment: 'jest-environment-jsdom',
   moduleNameMapper: {
-    // Handle module aliases for Next.js
+    '^@/(.*)$': '<rootDir>/src/$1',
     '^@/sa/(.*)$': '<rootDir>/src/actions/$1',
-    '^@/app/(.*)$': '<rootDir>/src/app/$1',
+    '^@/a/(.*)$': '<rootDir>/src/app/$1',
     '^@/api/(.*)$': '<rootDir>/src/app/api/$1',
-    '^@/components/(.*)$': '<rootDir>/src/components/$1',
-    '^@/store/(.*)$': '<rootDir>/src/store/$1',
-    '^@/hooks/(.*)$': '<rootDir>/src/hooks/$1',
-    '^@/lib/(.*)$': '<rootDir>/src/lib/$1',
-    '^@/util/(.*)$': '<rootDir>/src/lib/util/$1',
+    '^@/c/(.*)$': '<rootDir>/src/components/$1',
+    '^@/h/(.*)$': '<rootDir>/src/hooks/$1',
+    '^@/s/(.*)$': '<rootDir>/src/store/$1',
+    '^@/l/(.*)$': '<rootDir>/src/lib/$1',
+    '^@/u/(.*)$': '<rootDir>/src/lib/util/$1',
+    '^#/(.*)$': '<rootDir>/$1',
   },
-  // testEnvironment: 'jest-enviroment-jsdom',
-  preset: 'ts-jest',
-  verbose: true,
+  moduleDirectories: ['node_modules', '<rootDir>/'],
 };
 
-// Ensure next/jest can load the async Next.js config
-module.exports = createJestConfig(customJestConfig);
+export default createJestConfig(customJestConfig);

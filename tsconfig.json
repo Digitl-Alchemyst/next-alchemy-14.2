@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "lib": ["dom", "dom.iterable", "esnext"],
+    "types": ["jest", "node"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -40,7 +41,8 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    ".dev/pageTemp.tsx",
+    "jest.config.ts",
+    "jest.setup.ts",
     "build-utilities/generateRobots.mjs"
   ],
   "exclude": ["node_modules"]
