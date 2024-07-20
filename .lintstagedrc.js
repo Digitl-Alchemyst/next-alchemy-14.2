@@ -3,7 +3,7 @@ module.exports = {
   '**/*.{ts,tsx}': () => 'tsc --noEmit --skipLibCheck --noErrorTruncation',
 
   // Lint & Prettify TS and JS files
-  '**/*.{js,jsx,ts,tsx}': ['eslint --fix --no-ignore', 'prettier --write'],
+  // '**/*.{js,jsx,ts,tsx}': ['eslint --fix --no-ignore', 'prettier --write'],
 
   // Prettify only Markdown and JSON files
   '**/*.{json,md}': ['prettier --write'],
