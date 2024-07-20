@@ -65,6 +65,7 @@ export default function Home() {
             development with a customizable design system.
           </li>
         </ul>
+        <p>test</p>
       </main>
     </div>
   );
