@@ -1,73 +1,101 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import '@testing-library/jest-dom';
 import Home from '@/app/page';
 
-// Mock the next/image component
+// Mock Next.js components
 jest.mock('next/image', () => ({
   __esModule: true,
-  default: (props: any) => <img {...props} />,
+  default: (props: React.ImgHTMLAttributes<HTMLImageElement>) => <img {...props} />,
 }));
 
-// Mock the next/link component
-jest.mock('next/image', () => ({
+jest.mock('next/link', () => ({
   __esModule: true,
-  default: (props: any) => <img {...props} />,
+  default: ({ children, href }: { children: React.ReactNode; href: string }) => (
+    <a href={href}>{children}</a>
+  ),
 }));
 
 describe('Home Component', () => {
-  // Test 1: Snapshot test
-  it('renders homepage unchanged', () => {
-    const { container } = render(<Home />);
-    expect(container).toMatchSnapshot();
-  });
-
-  // Test 2: Content rendering test
-  it('renders the correct content', () => {
+  beforeEach(() => {
     render(<Home />);
-
-    // Check for images
-    expect(screen.getByAltText('Digital Alchemyst Studios')).toBeInTheDocument();
-    expect(screen.getByAltText('Alchemy Labs')).toBeInTheDocument();
-
-    // Check for text content
-    expect(
-      screen.getByText(/Welcome to Next.js 13.5 Alchemy Boilerplate Base/i),
-    ).toBeInTheDocument();
-    expect(screen.getByText(/Boilerplate by Digitl Alchemyst/i)).toBeInTheDocument();
-
-    // Check for button
-    expect(screen.getByText('Visit the Github')).toBeInTheDocument();
   });
 
-  // Test 3: Accessibility test
-  it('has no accessibility violations', async () => {
-    const { container } = render(<Home />);
-
-    // If you have axe-core installed, you can use it like this:
-    // await expect(container).toHaveNoViolations();
-
-    // For this example, we'll check for basic accessibility attributes
-    expect(screen.getByRole('main')).toBeInTheDocument();
-    expect(screen.getByRole('heading', { level: 4 })).toBeInTheDocument();
-    expect(screen.getByRole('link')).toHaveAttribute(
-      'href',
-      'https://github.com/Digitl-Alchemyst/next-13.5-alchemy-base',
+  // Test 1: Main Container
+  test('1. Main container renders with correct class', () => {
+    const mainElement = screen.getByRole('main');
+    expect(mainElement).toHaveClass(
+      'flex min-h-screen flex-col items-center justify-start gap-y-5 p-12'
     );
   });
 
-  // Test 4: Styling test
-  it('applies correct CSS classes', () => {
-    render(<Home />);
+  // Test 2: Digital Alchemyst Studios Banner
+  test('2. Digital Alchemyst Studios banner renders correctly', () => {
+    const banner = screen.getByAltText('Digital Alchemyst Studios');
+    expect(banner).toBeInTheDocument();
+    expect(banner).toHaveAttribute('src', '/Banner.png');
+    expect(banner).toHaveAttribute('width', '720');
+    expect(banner).toHaveAttribute('height', '350');
+  });
 
-    expect(screen.getByRole('main')).toHaveClass(
-      'flex min-h-screen flex-col items-center justify-start p-12',
+  // Test 3: Alchemy Labs Image
+  test('3. Alchemy Labs image renders correctly', () => {
+    const labsImage = screen.getByAltText('Alchemy Labs');
+    expect(labsImage).toBeInTheDocument();
+    expect(labsImage).toHaveAttribute('src', '/labs.png');
+    expect(labsImage).toHaveAttribute('width', '720');
+    expect(labsImage).toHaveAttribute('height', '350');
+  });
+
+  // Test 4: Welcome Heading
+  test('4. Welcome heading renders with correct content and class', () => {
+    const welcomeHeading = screen.getByText(
+      /Welcome to Next-Alchemy 14.2 Boilerplate Base for Next.js with:/i
     );
-    expect(screen.getByText(/Welcome to Next.js 13.5 Alchemy Boilerplate Base/i)).toHaveClass(
-      'mt-8 w-4/5 text-center text-lg font-bold text-stone-300',
+    expect(welcomeHeading).toBeInTheDocument();
+    expect(welcomeHeading).toHaveClass(
+      'mt-8 w-4/5 text-center text-lg font-bold text-steelpolished-300'
     );
-    expect(screen.getByText('Visit the Github')).toHaveClass(
-      'my-5 cursor-pointer rounded-lg border border-zinc-700 bg-zinc-300 p-3 neon-amber',
+  });
+
+  // Test 5: Boilerplate Author Information
+  test('5. Boilerplate author information renders correctly', () => {
+    const authorInfo = screen.getByText(
+      /Boilerplate by Digitl Alchemyst @ Digital Alchemyst Studios \/ Alchemy Labs/i
     );
+    expect(authorInfo).toBeInTheDocument();
+    expect(authorInfo).toHaveClass('w-4/5 text-center text-lg font-bold text-steelpolished-300');
+  });
+
+  // Test 6: Boilerplate Description
+  test('6. Boilerplate description renders correctly', () => {
+    const description = screen.getByText(
+      /This boilerplate is created to be a base for Clean Architecture applications/i
+    );
+    expect(description).toBeInTheDocument();
+    expect(description).toHaveClass('w-4/5 text-center text-lg font-bold text-steelpolished-300');
+  });
+
+  // Test 7: Feature List
+  test('7. Feature list renders with correct number of items and content', () => {
+    const listItems = screen.getAllByRole('listitem');
+    expect(listItems).toHaveLength(9);
+    expect(listItems[0]).toHaveTextContent(/Next.js 14:/);
+    expect(listItems[1]).toHaveTextContent(/TypeScript:/);
+    // Add similar checks for other list items if needed
+  });
+
+  // Test 8: GitHub Link Button
+  test('8. GitHub link button renders with correct text and classes', () => {
+    const linkButton = screen.getByRole('button', { name: /Visit the Github/i });
+    expect(linkButton).toBeInTheDocument();
+    expect(linkButton).toHaveClass(
+      'my-5 cursor-pointer rounded-lg border border-zinc-700 bg-zinc-300 p-3 neon-amber'
+    );
+  });
+
+  // Test 9: GitHub Link Href
+  test('9. GitHub link has correct href attribute', () => {
+    const link = screen.getByRole('link', { name: /Visit the Github/i });
+    expect(link).toHaveAttribute('href', 'https://github.com/Digitl-Alchemyst/next-alchemy-14.2');
   });
 });

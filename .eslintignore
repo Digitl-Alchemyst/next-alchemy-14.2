@@ -2,3 +2,6 @@
 dist
 out
 node_modules
+.next/
+__tests__
+tailwind.config

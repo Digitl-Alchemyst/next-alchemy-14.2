@@ -40,6 +40,13 @@ Project version updated for Next.js 13.4.8 [This project will be maintained to r
 - 🍻 Next.js 3rd Parties - GTM
 - 📢 Google AdSense
 
+## Features
+
+- 🌈 Neon Shadows
+- 🌀 Slower Spin Animation
+- 🙈 Scrollbar Hide
+- 🌈 Expanded Color Library including Social Media Colors
+
 ## Project State
 
 - 🛠️ Release
@@ -100,10 +107,8 @@ Project version updated for Next.js 13.4.8 [This project will be maintained to r
 | --- | --- |
 | `/src/app/lib/util/models` | Where Mongo DB Schema Models are stored |
 | `/src/app/lib/util/actions` | Where Server Actions are stored including: Uploading files to S3, Updating Profile info, and creating Invoices for Tips |
-| `/src/app/api/auth/[...nextauth]/route.ts` |  API Route for user authentication [!Forced-Naming-Convention] |
+| `/src/app/api/auth/[...nextauth]/route.ts` |  API Route for user authentication |
 | `/` |  |
-
-next-alchemy-14.2/ ├── .husky/ │ └── pre-commit │ └── \_/ │ │ └── gitignore │ │ └── husky.sh ├── node_modules/ ├── public/ │ └── (empty) ├── src/ │ ├── actions/ │ │ └── (empty) │ ├── app/ │ │ ├── api/ │ │ │ └── (empty) │ │ └── favicon.ico │ │ └── globals.css │ │ └── layout.tsx │ │ └── page.tsx │ ├── components/ │ │ └── (empty) │ ├── hooks/ │ │ └── (empty) │ └── lib/ │ └── utils/ │ └── utils.ts ├── .components.json ├── .eslintrc.json ├── .prettierrc.json ├── .lintstagedrc.js ├── .eslintignore ├── .gitignore ├── jest.config.js ├── jest.setup.js ├── next.config.js └── tsconfig.json ├── package.json ├── postcss.config.js ├── tailwind.config.js ├── README.md ├── SECURITY.md
 
 ## Configuration
 
