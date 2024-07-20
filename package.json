@@ -8,10 +8,13 @@
     "start": "next start",
     "lint": "next lint",
     "fix": "next lint:fix",
+    "check": "prettier --check .",
     "format": "prettier --write .",
     "test": "jest",
     "test:watch": "jest --watch",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "deploy": "vercel",
+    "prod": "vercel --prod"
   },
   "dependencies": {
     "@heroicons/react": "^2.1.5",

@@ -12,19 +12,11 @@
  </p>
 
 <p align="center">
-Welcome to Project: Scoop-Sustain. This is an all in 1 platform for crowd-funding and donation support. 
+Project version updated for Next.js 13.4.8 [This project will be maintained to remain current with Next.js @latest until otherwise noted.] This is ready to use in its current state project is set up with Jest and React Testing Library for code testing, it has been configured to work with type script. Custom imports have been set up but are currently not working within the testing enviroment. Eslint settings still a WOP refining the configs for Jest & Testing Library as well as Typescript. Uses ESLint to parse to Typescript. Sets specific rules for for testing envrioment (files within the **tests** directory or files with names ending in .spec.js, .test.js, .ts, .jsx, or .tsx). Lots of rule modifications I collected from a few other react projects. Configured Import Resolver to handle custom import settings.
 <br />
-<br /> 
-  <a href="https://github.com/vercel/next.js">
-    <img src="https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white" alt="Next.js badge">
-  </a>
-  <a href="https://github.com/microsoft/TypeScript">
-    <img src="https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white" alt="Typescript badge">
-  </a>
-  <a href="https://github.com/tailwindlabs/tailwindcss">
-    <img src="https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind badge">
-  </a>
-<br />
+
+[Demo Video](https://www.youtube.com/watch?v=ZtPs9kD9ExY) <br /> <a href="https://github.com/vercel/next.js"> <img src="https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white" alt="Next.js badge"> </a> <a href="https://github.com/microsoft/TypeScript"> <img src="https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white" alt="Typescript badge"> </a> <a href="https://github.com/tailwindlabs/tailwindcss"> <img src="https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind badge"> </a> <br />
+
 </p>
 
 <h2><ul><b>Live Project</b></ul></h2>
@@ -40,9 +32,6 @@ Welcome to Project: Scoop-Sustain. This is an all in 1 platform for crowd-fundin
 - 📟 Next.js
 - 🎓 TypeScript
 - 🚀 Tailwind CSS
-- 🌳 MongoDB
-- 👹 AWS S3 Bucket
-- 🎽 Stripe
 
 ## Libraries & Plugins
 
@@ -51,66 +40,43 @@ Welcome to Project: Scoop-Sustain. This is an all in 1 platform for crowd-fundin
 - 🍻 Next.js 3rd Parties - GTM
 - 📢 Google AdSense
 
-## Concepts
-
-- 🗂️ Server Side Data Fetching
-- 🔄 Data Caching & Revalidation with Tags
-- 🌐 Server Side Rendering (SSR)
-- 🏗️ Static Site Generation (SSG) with `generateStaticParams`
-- 🔀 Dynamic Routing
-
 ## Project State
 
-- 🛠️ Initial Development
+- 🛠️ Release
 
 # To-Do List
 
-- [ ] New users are undefined with no username in the profile link on the nav bar
-- [ ] Error handling for not updating profile with required info
-- [ ] More Profile Info About / How Funds are Used
+## Main
+
+- [ ]
+- [ ]
+- [ ]
 
 ## Documentation
 
 - [ ] Add comments to all public functions
 - [ ] Create a CONTRIBUTING guide
-- [x] Update the README with installation instructions
+- [ ] Update the README with installation instructions
 
 ## Features
 
-- [ ] Add search functionality
-- [ ] Design a responsive layout
-
-- [ ] Profile Info: Headline, About Me (Rich Text?), How your Donations Help (Rich Text?), Thank You Note
-- [ ] Donate off Platform: CashApp, Venmo, Paypal
-- [ ] Donate off Platform: Crypto Wallet Links
-- [ ] Profile Settings:
+- [ ]
+- [ ]
 - [ ]
 
 ## Bugs
 
-- [ ] New users are undefined with no username in the profile link on the nav bar
-- [ ] Error handling for not updating profile with required info
-- [ ] Sign in and sign out routes from /lib/util/auth.ts do not seem to be working.
-- [x] Fetch failed for userSearch on live production, suspect the env url variable is set to local host on vercel.
-- [ ] userSearch on Live Production is not working. Application error: a client-side exception has occurred (see the browser console for more information). Error: Connection closed. Call Stack Useless. This is caused by the IP whitelist in MongoDB Atlas. The Vercel deployment needs to be whitelisted in MongoDB Atlas, Temp fix is to allow all IPs.
+- [ ]
+- [ ]
+- [ ]
 
 ## Refactoring
 
-- [ ] Base URL Resolver.
-- [ ] Refactor the database connection logic
-- [ ] Optimize the data retrieval process
+- [ ]
+- [ ]
+- [ ]
 
 ## Libraries & Plugins to Implement
-
-## Potential Names
-
-- [ ] Unchained-Voices
-- [ ] Creator-Shield
-- [ ] Voice-Unsilenced
-- [ ] Speak-Secure
-- [ ] Fund-Fortress
-- [ ] Speakout-Secure
-- [ ] SpeakEasy
 
 # Documentation
 
@@ -132,26 +98,14 @@ Welcome to Project: Scoop-Sustain. This is an all in 1 platform for crowd-fundin
 
 | File(s) | Description |
 | --- | --- |
-| `.env.example` | All env variables needed for project to run |
-| `/src/app/lib/util/db.ts` | Config file for connecting to Mongo DB in both Dev & Prod env |
-| `/src/app/lib/util/auth.ts` | Config file for NextAuth Google Auth Provider |
 | `/src/app/lib/util/models` | Where Mongo DB Schema Models are stored |
 | `/src/app/lib/util/actions` | Where Server Actions are stored including: Uploading files to S3, Updating Profile info, and creating Invoices for Tips |
 | `/src/app/api/auth/[...nextauth]/route.ts` |  API Route for user authentication [!Forced-Naming-Convention] |
-| `/src/app/callback/route.ts` | API Callback Route for Cryptomus Invoice Status |
 | `/` |  |
 
+next-alchemy-14.2/ ├── .husky/ │ └── pre-commit │ └── \_/ │ │ └── gitignore │ │ └── husky.sh ├── node_modules/ ├── public/ │ └── (empty) ├── src/ │ ├── actions/ │ │ └── (empty) │ ├── app/ │ │ ├── api/ │ │ │ └── (empty) │ │ └── favicon.ico │ │ └── globals.css │ │ └── layout.tsx │ │ └── page.tsx │ ├── components/ │ │ └── (empty) │ ├── hooks/ │ │ └── (empty) │ └── lib/ │ └── utils/ │ └── utils.ts ├── .components.json ├── .eslintrc.json ├── .prettierrc.json ├── .lintstagedrc.js ├── .eslintignore ├── .gitignore ├── jest.config.js ├── jest.setup.js ├── next.config.js └── tsconfig.json ├── package.json ├── postcss.config.js ├── tailwind.config.js ├── README.md ├── SECURITY.md
+
 ## Configuration
-
-### Step 1. Set up the Services for the Project Environment
-
-[Mongo DB Atlas](https://cloud.mongodb.com/v2/6679a894999dbe2418e42095#/overview) DigitalAlchemistStudios@gmail.com Google Auth
-
-[Amazon S3 Bucket](https://us-east-2.console.aws.amazon.com/console/home?region=us-east-2) DigitalAlchemistStudios@gmail.com Standard Password
-
-[Cryptomus](https://app.cryptomus.com/dashboard/business/merchants/2f6241cc-3251-4b66-959e-6649f7db3a73/settings) DigitalAlchemistStudios@gmail.com Google Auth
-
-[Stripe](https://dashboard.stripe.com/test/dashboard) DigitalAlchemistStudios@gmail.com Secure Password
 
 ### Step 2. Set up the project locally
 
