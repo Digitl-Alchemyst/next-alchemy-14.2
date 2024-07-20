@@ -14,11 +14,7 @@
     "test:watch": "jest --watch",
     "prepare": "husky install",
     "deploy": "vercel",
-    "prod": "vercel --prod",
-    "scripts": {
-      "lint-staged": "lint-staged",
-      "print-env": "node -e \"console.log(process.env)\""
-    }
+    "prod": "vercel --prod"
   },
   "engines": {
     "node": ">=20.8.0",
