@@ -31,6 +31,7 @@ Project version updated for Next.js 13.4.8 [This project will be maintained to r
 
 - 📟 Next.js
 - 🎓 TypeScript
+- ✅ Strict Mode for TypeScript and React 18
 - 🚀 Tailwind CSS
 
 ## Libraries & Plugins
@@ -39,6 +40,10 @@ Project version updated for Next.js 13.4.8 [This project will be maintained to r
 - 📌 React Icons
 - 🍻 Next.js 3rd Parties - GTM
 - 📢 Google AdSense
+- ✏️ Linter with ESLint (default NextJS, NextJS Core Web Vitals and Airbnb configuration)
+- 🛠 Code Formatter with Prettier
+- 🦊 Husky for Git Hooks
+- 🚫 Lint-staged for running linters on Git staged files
 
 ## Features
 
@@ -46,6 +51,10 @@ Project version updated for Next.js 13.4.8 [This project will be maintained to r
 - 🌀 Slower Spin Animation
 - 🙈 Scrollbar Hide
 - 🌈 Expanded Color Library including Social Media Colors
+
+- 💯 Maximize lighthouse score
+- 🤖 SEO metadata, JSON-LD and Open Graph tags with Next SEO
+- 🖱️ One click deployment with Vercel (or manual deployment to any hosting services)
 
 ## Project State
 
@@ -90,13 +99,14 @@ Project version updated for Next.js 13.4.8 [This project will be maintained to r
 - [Table of Contents](#table-of-contents)
 - [Important files and folders](#important-files-and-folders)
 - [Configuration](#configuration)
-  - [Step 1. Set up the Services for the Project Environment](#step-1-set-up-the-services-for-the-project-environment)
-  - [Step 2. Set up the project locally](#step-2-set-up-the-project-locally)
+  - [Option 1. Set up the project locally](#step-2-set-up-the-project-locally)
+    - [Step 3.5v1. Create the .env file locally and populate in Vercel](#step-35v1-create-the-env-file-locally-and-populate-in-vercel)
+    - [Step 3.5v2. Download the environment variables from Vercel to your local environment](#step-35v2-download-the-environment-variables-from-vercel-to-your-local-environment)
   - [Step 3. Run Next.js locally in development mode](#step-3-run-nextjs-locally-in-development-mode)
     - [Step 3.5v1. Create the .env file locally and populate in Vercel](#step-35v1-create-the-env-file-locally-and-populate-in-vercel)
     - [Step 3.5v2. Download the environment variables from Vercel to your local environment](#step-35v2-download-the-environment-variables-from-vercel-to-your-local-environment)
   - [Step 4. Deploy to production](#step-4-deploy-to-production)
-  - [Step 5. Testing, Formatting, Linting, and Commits](#step-5-testing-formatting-linting-and-commits)
+  - [Testing, Formatting, Linting, and Commits](#step-5-testing-formatting-linting-and-commits)
 - [Questions and Answers](#questions-and-answers)
   - [It doesn't work! Where can I get help?](#it-doesnt-work-where-can-i-get-help)
 - [Next steps](#next-steps)
@@ -112,9 +122,9 @@ Project version updated for Next.js 13.4.8 [This project will be maintained to r
 
 ## Configuration
 
-### Step 2. Set up the project locally
+### Option 1. Set up the project locally
 
-[Clone/Fork the repository](https://github.com/Digitl-Alchemyst/scoop-sustain.git)
+[Clone/Fork the repository](https://github.com/Digitl-Alchemyst/next-alchemy-14.2)
 
 Rename.env.example to .env.local and populate the variables with the correct information from the above services. Alternatively, you can populate the env variables in the Vercel Dashboard and use the [Vercel CLI](https://vercel.com/cli) to pull the environment variables from your Vercel project.
 
@@ -164,12 +174,18 @@ Alternatively, you can deploy without a `git` hosting provider using the Vercel 
 npx vercel --prod
 ```
 
-### Step 5. Testing, Formatting, Linting, and Commits
+### Testing, Formatting, Linting, and Commits
 
 Run ESLint
 
 ```bash
 npm run lint
+```
+
+Run ESLint with fixes
+
+```bash
+npm run lint --fix
 ```
 
 Check code for formatting inconsistencies with Prettier
@@ -215,13 +231,15 @@ npm jest --ci
 In case of any issues or questions, you can post:
 
 - [Next JS Documentation][nextjs-docs]
+- [Vercel Documentation][vercel-docs]
+- [GitHub Discussions for Vercel][nextjs-vercel]
 - [GitHub Discussions for Next.js][nextjs-github]
 - [Discord Coummunity for Next.js][nextjs-discord]
 - [Discord Coummunity for Tailwind CSS][tailwind-discord]
-- [Join our Javascript Discord community to ask questions and get help][js-help]
 
 ## Next steps
 
+- [Join our Javascript Discord community to ask questions and get help][js-help]
 - [Join the Alchemy Labz Discord server to work with others contributing to this project][js-help]
 
 [localhost-3000]: http://localhost:3000
