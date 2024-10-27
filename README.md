@@ -252,3 +252,5 @@ In case of any issues or questions, you can post:
 [tailwind-discord]: https://discord.gg/tailwind
 [js-help]: https://discord.gg/aDumcW6ESB
 [alchemy-labz]: https://discord.gg/8MSUFpKu6n
+
+Run Sentry Initializer

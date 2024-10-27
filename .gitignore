@@ -43,15 +43,14 @@ yarn-error.log*
 # local env files
 .env*.local
 .env
-.env*.local
-.env
 .env.local
-studio/.env.development
 
 # Typescript
 *.tsbuildinfo
+next-env.d.ts
 
 # vercel
 .vercel
+
 # Sentry Config File
 .env.sentry-build-plugin

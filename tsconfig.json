@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es6",
+    "target": "ES2017",
     "lib": ["dom", "dom.iterable", "esnext"],
     "types": ["jest", "node"],
     "allowJs": true,
@@ -11,8 +11,8 @@
     "forceConsistentCasingInFileNames": true,
     "esModuleInterop": true,
     "module": "esnext",
-    // "moduleResolution": "bundler",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
+    // "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
@@ -23,16 +23,15 @@
       }
     ],
     "paths": {
+      "#/*": ["./*"],
       "@/*": ["./src/*"],
-      "@/sa/*": ["./src/actions/*"],
       "@/a/*": ["./src/app/*"],
       "@/api/*": ["./src/app/api/*"],
       "@/c/*": ["./src/components/*"],
       "@/h/*": ["./src/hooks/*"],
-      "@/s/*": ["./src/store/*"],
+      "@/s/*": ["./src/server/*"],
       "@/l/*": ["./src/lib/*"],
-      "@/u/*": ["./src/lib/util/*"],
-      "#/*": ["./*"]
+      "@/u/*": ["./src/lib/util/*"]
     },
     "rootDir": "./",
     "baseUrl": ".",

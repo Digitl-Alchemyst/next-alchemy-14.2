@@ -10,12 +10,11 @@ const customJestConfig: Config = {
   testEnvironment: 'jest-environment-jsdom',
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/src/$1',
-    '^@/sa/(.*)$': '<rootDir>/src/actions/$1',
+    '^@/s/(.*)$': '<rootDir>/src/server/$1',
     '^@/a/(.*)$': '<rootDir>/src/app/$1',
     '^@/api/(.*)$': '<rootDir>/src/app/api/$1',
     '^@/c/(.*)$': '<rootDir>/src/components/$1',
     '^@/h/(.*)$': '<rootDir>/src/hooks/$1',
-    '^@/s/(.*)$': '<rootDir>/src/store/$1',
     '^@/l/(.*)$': '<rootDir>/src/lib/$1',
     '^@/u/(.*)$': '<rootDir>/src/lib/util/$1',
     '^#/(.*)$': '<rootDir>/$1',

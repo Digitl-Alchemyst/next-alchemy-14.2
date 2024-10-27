@@ -1,5 +1,32 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-require-imports */
 import type { Config } from 'tailwindcss';
 import plugin from 'tailwindcss/plugin';
+
+const chroma = require('chroma-js');
+// const defaultTheme = require('tailwindcss/defaultTheme');
+
+// const colors = require('tailwindcss/colors');
+const { default: flattenColorPalette } = require('tailwindcss/lib/util/flattenColorPalette');
+
+function generateShades(baseColor: string): { [key: number]: string } {
+  const scale = chroma
+    .scale([chroma(baseColor).brighten(2), baseColor, chroma(baseColor).darken(2)])
+    .mode('lab')
+    .colors(9); // Generates 9 shades from light to dark
+  const shades = {
+    100: scale[0],
+    200: scale[1],
+    300: scale[2],
+    400: scale[3],
+    500: scale[4], // main color
+    600: scale[5],
+    700: scale[6],
+    800: scale[7],
+    900: scale[8],
+  };
+  return shades;
+}
 
 const config: Config = {
   darkMode: ['class'],
@@ -41,34 +68,12 @@ const config: Config = {
         '15': '15',
       },
       colors: {
-        accent: '#657eac',
-        accent2: '#3c00a0',
-        accent3: '#539eff',
-        accent4: '#4caf50',
-        accent5: '#b6eab8',
-        accent6: '#93cf30',
-        dark: {
-          100: '#dbdcdf',
-          200: '#b6b9bf',
-          300: '#9297a0',
-          400: '#6d7480',
-          500: '#495160',
-          600: '#3a414d',
-          700: '#2c313a',
-          800: '#1d2026',
-          900: '#0f1013',
-        },
-        light: {
-          100: '#f1f3f6',
-          200: '#e2e6ee',
-          300: '#d4dae5',
-          400: '#c5cddd',
-          500: '#b7c1d4',
-          600: '#929aaa',
-          700: '#6e747f',
-          800: '#494d55',
-          900: '#25272a',
-        },
+        dark: generateShades('#1A102B'), // Example dark color
+        light: generateShades('#dae9dc'), // Example light color
+        accent1: generateShades('#319bcf'), // Example accent color
+        accent2: generateShades('#0ed729'),
+        accent3: generateShades('#008080'),
+        accent4: generateShades('#ffd700'),
         x: {
           primary: '#1DA1F2', // Twitter Blue
           dark: '#14171A', // Twitter Dark
@@ -574,11 +579,18 @@ const config: Config = {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
+      gradients: {
+        'lime-violet': 'linear-gradient(to right, #5029a6 0%, #8db600 100%)',
+        'red-yellow': 'linear-gradient(to right, #f83600 0%, #f9d423 100%)',
+        // Add more gradients as needed
+      },
     },
   },
   plugins: [
+    addVariablesForColors,
     require('tailwind-scrollbar-hide'),
     require('tailwindcss-animate'),
+    // Neon effect
     plugin(({ theme, addUtilities }: { theme: any; addUtilities: (arg0: any) => void }) => {
       const neonUtilities: Record<string, any> = {};
       const colors = theme('colors');
@@ -593,6 +605,130 @@ const config: Config = {
       }
       addUtilities(neonUtilities);
     }),
+    // Inner Glow Effect
+    plugin(({ theme, addUtilities }: { theme: any; addUtilities: (arg0: any) => void }) => {
+      const innerGlowUtilities: Record<string, any> = {};
+      const colors = theme('colors');
+      const opacities = theme('opacity', {});
+
+      for (const colorName in colors) {
+        if (typeof colors[colorName] === 'object') {
+          const color1 = colors[colorName][600];
+          const color2 = colors[colorName][900];
+
+          // Add the regular glow without opacity
+          innerGlowUtilities[`.inner-glow-${colorName}`] = {
+            boxShadow: `inset 0 0 10px ${color1}, inset 10px 10px 40px ${color2}`,
+          };
+
+          // Add versions with opacity
+          for (const opacityName in opacities) {
+            const opacityValue = opacities[opacityName];
+
+            innerGlowUtilities[`.inner-glow-${colorName}-${opacityName}`] = {
+              boxShadow: `inset 0 0 10px ${color1}${Math.round(opacityValue * 255)
+                .toString(16)
+                .padStart(2, '0')}, inset 10px 10px 40px ${color2}${Math.round(opacityValue * 255)
+                .toString(16)
+                .padStart(2, '0')}`,
+            };
+          }
+        }
+      }
+
+      addUtilities(innerGlowUtilities);
+    }),
+    // Text Gradient
+    plugin(function ({ addUtilities, theme }) {
+      const gradients = theme('gradients', {});
+      const newUtilities: Record<string, any> = Object.keys(gradients).reduce(
+        (acc, key) => {
+          acc[`.text-gradient-${key}`] = {
+            'background-image': gradients[key as keyof typeof gradients],
+            'background-clip': 'text',
+            '-webkit-background-clip': 'text',
+            color: 'transparent',
+          };
+          return acc;
+        },
+        {} as Record<string, any>
+      );
+      addUtilities(newUtilities);
+    }),
+    //Text Stroke
+    plugin(function ({ addUtilities, theme }) {
+      const strokeWidths = theme('strokeWidth', {
+        DEFAULT: '1',
+        '0': '0.5',
+        '1': '1',
+        '2': '2',
+      });
+
+      const colors = theme('colors', {});
+
+      // Define the type of utilities object
+      const utilities: Record<string, Record<string, string>> = {};
+
+      // Generate stroke width utilities
+      Object.entries(strokeWidths).forEach(([key, value]) => {
+        utilities[`.text-stroke${key === 'DEFAULT' ? '' : `-${key}`}`] = {
+          '-webkit-text-stroke-width': `${value}px`,
+          'paint-order': 'stroke fill',
+        };
+      });
+
+      // Generate stroke color utilities
+      Object.entries(colors as Record<string, string | Record<string, string>>).forEach(
+        ([colorName, color]) => {
+          if (typeof color === 'string') {
+            utilities[`.text-stroke-${colorName}`] = {
+              '-webkit-text-stroke-color': color,
+              'paint-order': 'stroke fill',
+            };
+          } else if (typeof color === 'object' && color !== null) {
+            Object.entries(color).forEach(([shade, shadeColor]) => {
+              utilities[`.text-stroke-${colorName}-${shade}`] = {
+                '-webkit-text-stroke-color': shadeColor,
+                'paint-order': 'stroke fill',
+              };
+            });
+          }
+        }
+      );
+
+      addUtilities(utilities);
+    }),
+    // Frosted Glass Effect
+    plugin(function ({ addUtilities }) {
+      const newUtilities = {
+        '.frosted-glass': {
+          background: 'rgba(255, 255, 255, 0.25)',
+          'backdrop-filter': 'blur(10px)',
+          border: '1px solid rgba(255, 255, 255, 0.18)',
+          'box-shadow': '0 8px 32px 0 rgba(31, 38, 135, 0.37)',
+        },
+        '.frosted-glass-dark': {
+          background: 'rgba(0, 0, 0, 0.25)',
+          'backdrop-filter': 'blur(10px)',
+          border: '1px solid rgba(0, 0, 0, 0.18)',
+          'box-shadow': '0 8px 32px 0 rgba(0, 0, 0, 0.37)',
+        },
+      };
+
+      addUtilities(newUtilities);
+    }),
   ],
 };
+
+function addVariablesForColors({ addBase, theme }: any) {
+  const allColors = flattenColorPalette(theme('colors'));
+  const newVars = Object.fromEntries(
+    Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
+  );
+
+  addBase({
+    ':root': newVars,
+  });
+}
+
 export default config;

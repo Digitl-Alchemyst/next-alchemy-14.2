@@ -1,0 +1,62 @@
+# File location: .github/gitmessage
+
+<type>(<scope>): <subject>
+
+<body>
+
+<footer>
+
+# Commit Message Format
+# 
+# <type>(<scope>): <subject>
+# <BLANK LINE>
+# <body>
+# <BLANK LINE>
+# <footer>
+#
+# Type (required):
+#   feat     - A new feature
+#   fix      - A bug fix
+#   docs     - Documentation only changes
+#   style    - Changes that do not affect the meaning of the code (white-space, formatting, etc)
+#   refactor - A code change that neither fixes a bug nor adds a feature
+#   perf     - A code change that improves performance
+#   test     - Adding missing tests or correcting existing tests
+#   chore    - Changes to the build process or auxiliary tools and libraries
+#
+# Scope (optional):
+#   Anything specifying place of the commit change, e.g., (auth), (navbar), etc.
+#
+# Subject (required):
+#   A short description of the change. Not capitalized. No period at the end.
+#
+# Body (optional):
+#   More detailed explanatory text, if necessary. Wrap at 72 characters.
+#   Explain the problem that this commit is solving. Focus on why you
+#   are making this change as opposed to how.
+#
+# Footer (optional):
+#   The footer should contain any information about Breaking Changes
+#   and is also the place to reference GitHub issues that this commit closes.
+#
+#   Breaking changes should start with the word BREAKING CHANGE: with a space or two newlines.
+#   The rest of the commit message is then used for this.
+#
+# Examples:
+#   feat(auth): add login functionality
+#   
+#   Implement user authentication with JWT tokens.
+#   
+#   Closes #123
+#
+#   fix(navbar): correct dropdown menu position
+#   
+#   BREAKING CHANGE: The navbar API has changed.
+#   
+#   Before:
+#   <Navbar items={[...]} />
+#   
+#   After:
+#   <Navbar>
+#     <NavItem>...</NavItem>
+#   </Navbar>
