@@ -7,6 +7,9 @@ const HomePage = () => {
     'Next.js 14 App Router',
     'TypeScript 5.5',
     'Tailwind CSS 3.4',
+    'Shadcn 2.1.2',
+    'Lucide + React Icons',
+    'Next-Themes Dark Mode',
     'ESLint 8.57',
     'Prettier 3.3',
     'Jest 29.7',
@@ -18,7 +21,7 @@ const HomePage = () => {
 
   return (
     <div className='relative min-h-screen bg-gradient-to-b from-light-200 via-accent1-100 to-light-100 dark:from-dark-900 dark:via-accent1-900 dark:to-dark-800'>
-      <main className='relative flex flex-col items-center justify-start gap-8 p-8'>
+      <main className='relative flex flex-col items-center justify-start space-y-6 p-8'>
         {/* Hero Section */}
         <div className='relative flex flex-col items-center'>
           <div className='group overflow-hidden rounded-xl bg-white/80 p-6 shadow-lg backdrop-blur-sm transition-all duration-300 hover:shadow-xl dark:bg-slate-800/80'>
@@ -54,7 +57,7 @@ const HomePage = () => {
         </Link>
 
         {/* Features Grid */}
-        <div className='mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3'>
+        <div className='mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
           {features.map((feature) => (
             <div
               key={feature}
@@ -83,86 +86,96 @@ const HomePage = () => {
         </div>
 
         {/* Tailwind Plugins Section */}
-        <div className='relative mt-12 w-full max-w-4xl overflow-hidden rounded-xl bg-white/80 p-8 shadow-lg backdrop-blur-sm transition-all duration-300 hover:shadow-xl dark:bg-slate-800/80'>
+        <div className='relative mt-12 w-full max-w-4xl overflow-hidden rounded-xl bg-light-100/80 p-8 shadow-lg backdrop-blur-sm transition-all duration-300 hover:shadow-xl dark:bg-dark-700/80'>
           {/* Background Image for Frosted Glass Demo */}
-          <Image src='/labs.png' alt='Background' fill className='object-cover opacity-20' />
+          <Image src='/labs.png' alt='Background' fill className='-z-50 object-cover' />
 
-          <div className='relative mb-6 flex items-center gap-3'>
-            <svg
-              xmlns='http://www.w3.org/2000/svg'
-              className='h-6 w-6 text-accent4-500'
-              fill='none'
-              viewBox='0 0 24 24'
-              stroke='currentColor'
-            >
-              <path
-                strokeLinecap='round'
-                strokeLinejoin='round'
-                strokeWidth={2}
-                d='M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z'
-              />
-              <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M12 10v6' />
-              <path
-                strokeLinecap='round'
-                strokeLinejoin='round'
-                strokeWidth={2}
-                d='m9 13 3-3 3 3'
-              />
-            </svg>
-            <h3 className='text-2xl font-bold text-slate-800 dark:text-slate-200'>
-              Tailwind CSS Plugins
-            </h3>
+          <div className='relative mb-6 rounded-lg p-3 dark:bg-dark-200/70'>
+            <div className='mb-4 flex items-center gap-3'>
+              <svg
+                xmlns='http://www.w3.org/2000/svg'
+                className='h-6 w-6 text-accent4-500 dark:text-accent4-400'
+                fill='none'
+                viewBox='0 0 24 24'
+                stroke='currentColor'
+              >
+                <path
+                  strokeLinecap='round'
+                  strokeLinejoin='round'
+                  strokeWidth={2}
+                  d='M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z'
+                />
+                <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M12 10v6' />
+                <path
+                  strokeLinecap='round'
+                  strokeLinejoin='round'
+                  strokeWidth={2}
+                  d='m9 13 3-3 3 3'
+                />
+              </svg>
+              <h3 className='text-2xl font-bold text-dark-700 dark:text-light-200'>
+                Tailwind CSS Plugins
+              </h3>
+            </div>
+
+            <p className='text-lg text-dark-500 dark:text-light-400'>
+              This boilerplate comes with a variety of Tailwind CSS plugins, including:
+            </p>
           </div>
-
-          <p className='mb-8 text-lg text-steelpolished-400'>
-            This boilerplate comes with a variety of Tailwind CSS plugins, including:
-          </p>
 
           {/* Plugins Grid */}
           <div className='grid grid-cols-1 gap-8 md:grid-cols-2'>
             {/* Neon Glow */}
-            <div className='flex flex-col gap-2'>
-              <span className='text-sm font-medium text-steelpolished-400'>Neon Glow Effect</span>
-              <button className='w-full rounded-xl p-4 text-xl font-semibold transition-all neon-lime hover:scale-105'>
+            <div className='flex flex-col gap-2 rounded-md bg-light-200/95 p-3 dark:bg-dark-700/95'>
+              <span className='text-sm font-medium text-dark-600 dark:text-light-300'>
+                Neon Glow Effect
+              </span>
+              <button className='w-full rounded-xl bg-light-100 p-4 text-xl font-semibold text-dark-800 transition-all neon-accent2 hover:scale-105 dark:bg-dark-800 dark:text-light-200 dark:neon-accent1'>
                 Neon Glow
               </button>
             </div>
 
             {/* Text Stroke */}
-            <div className='flex flex-col gap-2'>
-              <span className='text-sm font-medium text-steelpolished-400'>
+            <div className='flex flex-col gap-2 rounded-md bg-light-200/95 p-3 dark:bg-dark-700/95'>
+              <span className='text-sm font-medium text-dark-600 dark:text-light-300'>
                 Text Stroke Effect
               </span>
-              <h3 className='text-5xl font-bold transition-all text-stroke-2 text-stroke-golden-600 hover:scale-105'>
+              <h3 className='text-5xl font-bold text-light-100 transition-all text-stroke-2 text-stroke-accent4-500 hover:scale-105 dark:text-dark-800 dark:text-stroke-accent1-400'>
                 Text Stroke
               </h3>
             </div>
 
             {/* Text Gradient */}
-            <div className='flex flex-col gap-2'>
-              <span className='text-sm font-medium text-steelpolished-400'>
+            <div className='flex flex-col gap-2 rounded-md bg-light-200/95 p-3 dark:bg-dark-700/95'>
+              <span className='text-sm font-medium text-dark-600 dark:text-light-300'>
                 Text Gradient Effect
               </span>
-              <h3 className='text-4xl font-bold transition-all text-gradient-lime-violet hover:scale-105'>
+              <h3 className='text-4xl font-bold text-transparent transition-all text-gradient-red-yellow hover:scale-105 dark:text-gradient-lime-violet'>
                 Text Gradient
               </h3>
             </div>
 
             {/* Inner Glow */}
-            <div className='flex flex-col gap-2'>
-              <span className='text-sm font-medium text-steelpolished-400'>Inner Glow Effect</span>
-              <div className='rounded-xl p-6 transition-all inner-glow-orange-65 hover:scale-105'>
-                <h2 className='text-center text-3xl font-bold'>Inner Glow</h2>
+            <div className='flex flex-col gap-2 rounded-md bg-light-200/95 p-3 dark:bg-dark-700/95'>
+              <span className='text-sm font-medium text-dark-600 dark:text-light-300'>
+                Inner Glow Effect
+              </span>
+              <div className='rounded-xl bg-light-100 p-6 transition-all inner-glow-accent4-45 hover:scale-105 dark:bg-dark-800 dark:inner-glow-accent1-65'>
+                <h2 className='text-center text-3xl font-bold text-dark-800 dark:text-light-200'>
+                  Inner Glow
+                </h2>
               </div>
             </div>
 
             {/* Frosted Glass - Full Width */}
             <div className='col-span-full flex flex-col gap-2'>
-              <span className='text-sm font-medium text-steelpolished-400'>
+              <span className='text-sm font-medium text-dark-600 dark:text-light-300'>
                 Frosted Glass Effect (WIP)
               </span>
-              <div className='rounded-xl p-8 transition-all frosted-glass hover:scale-105'>
-                <h2 className='text-center text-4xl font-bold'>Frosted Glass</h2>
+              <div className='rounded-xl bg-light-100/50 p-8 backdrop-blur-lg transition-all hover:scale-105 dark:bg-dark-800/50'>
+                <h2 className='text-center text-4xl font-bold text-dark-800 dark:text-light-200'>
+                  Frosted Glass
+                </h2>
               </div>
             </div>
           </div>

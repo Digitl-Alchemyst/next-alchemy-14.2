@@ -1,37 +1,33 @@
 import React from 'react';
 import { Github } from 'lucide-react';
-import ThemeToggle from '@/components/global/ThemeToggle';
+import { ThemeToggle } from '@/components/global/ThemeToggle';
+import Link from 'next/link';
 
 const Header = () => {
   return (
     <header className='sticky top-0 z-50 w-full'>
-      {/* Frosted glass effect with light/dark mode support */}
-      <div className='border-b bg-white/75 backdrop-blur-lg dark:border-slate-800 dark:bg-slate-900/75'>
+      <div className='border-b border-light-300 bg-light-100/75 backdrop-blur-lg dark:border-dark-600 dark:bg-dark-800/75'>
         <div className='container flex h-16 items-center justify-between px-4'>
-          {/* Project Name */}
           <div className='flex items-center space-x-2'>
             <h1 className='relative'>
-              <span className='bg-gradient-to-r from-accent1-400 to-accent2-400 bg-clip-text px-3 py-2 text-2xl font-bold text-transparent'>
+              <span className='px-3 py-2 text-2xl font-bold text-transparent text-gradient-orange-purple'>
                 Next Alchemy 14.2
               </span>
-              {/* Subtle underline effect */}
-              <span className='absolute bottom-0 left-0 h-0.5 w-full bg-gradient-to-r from-accent1-400 to-accent2-400 opacity-50' />
+              <span className='absolute bottom-0 left-0 h-0.5 w-full bg-gradient-to-r from-orange-400 to-purple-400 opacity-50' />
             </h1>
           </div>
 
-          {/* Right side items */}
           <div className='flex items-center space-x-6'>
             <ThemeToggle />
 
-            {/* GitHub Link */}
-            <a
-              href='https://github.com/yourusername/next-alchemy'
+            <Link
+              href='https://github.com/Digitl-Alchemyst/next-alchemy-14.2'
               target='_blank'
               rel='noopener noreferrer'
-              className='group rounded-full p-2 transition-all duration-300 hover:bg-slate-100 dark:hover:bg-slate-800'
+              className='group rounded-full p-2 transition-all duration-300 hover:bg-light-200 dark:hover:bg-dark-700'
             >
-              <Github className='h-6 w-6 text-slate-700 transition-colors group-hover:text-accent1-500 dark:text-slate-300 dark:group-hover:text-accent1-400' />
-            </a>
+              <Github className='h-6 w-6 text-dark-600 transition-colors group-hover:text-accent1-500 dark:text-light-300 dark:group-hover:text-accent1-400' />
+            </Link>
           </div>
         </div>
       </div>

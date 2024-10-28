@@ -1,3 +1,4 @@
+/* eslint-disable prefer-arrow-callback */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-require-imports */
 import type { Config } from 'tailwindcss';
@@ -582,7 +583,8 @@ const config: Config = {
       gradients: {
         'lime-violet': 'linear-gradient(to right, #5029a6 0%, #8db600 100%)',
         'red-yellow': 'linear-gradient(to right, #f83600 0%, #f9d423 100%)',
-        // Add more gradients as needed
+        'orange-purple': 'linear-gradient(to right, #ea6c09 0%, #9109ea 100%)',
+        // * Add more gradients here as needed
       },
     },
   },
