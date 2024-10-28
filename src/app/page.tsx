@@ -30,7 +30,7 @@ const HomePage = () => {
               alt='Digital Alchemyst Studios'
               width={720}
               height={350}
-              className='rounded-lg transition-transform duration-500 group-hover:scale-105'
+              className='w-auto rounded-lg transition-transform duration-500 group-hover:scale-105'
               priority
             />
           </div>
