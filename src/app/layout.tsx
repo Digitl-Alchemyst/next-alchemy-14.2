@@ -1,8 +1,11 @@
+/* eslint-disable react/function-component-definition */
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import { ErrorBoundary } from '@sentry/nextjs';
+import ThemeProvider from '../components/providers/ThemeProvider';
+import Header from '../components/global/Header';
 
 const geistSans = localFont({
   src: './fonts/GeistVF.woff',
@@ -33,8 +36,15 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${inter.className} antialiased`}
       >
-        {/* <Header /> */}
-        <ErrorBoundary>{children}</ErrorBoundary>
+        <Header />
+        <ThemeProvider
+          attribute='class'
+          defaultTheme='system'
+          enableSystem
+          disableTransitionOnChange
+        >
+          <ErrorBoundary>{children}</ErrorBoundary>
+        </ThemeProvider>
       </body>
     </html>
   );

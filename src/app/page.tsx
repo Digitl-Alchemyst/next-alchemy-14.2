@@ -17,17 +17,18 @@ const HomePage = () => {
   ];
 
   return (
-    <div className='min-h-screen bg-gradient-to-b from-dark-900 to-dark-800'>
-      <main className='flex flex-col items-center justify-start gap-8 p-8'>
+    <div className='relative min-h-screen bg-gradient-to-b from-light-200 via-accent1-100 to-light-100 dark:from-dark-900 dark:via-accent1-900 dark:to-dark-800'>
+      <main className='relative flex flex-col items-center justify-start gap-8 p-8'>
         {/* Hero Section */}
         <div className='relative flex flex-col items-center'>
-          <div className='rounded-xl p-6 frosted-glass'>
+          <div className='group overflow-hidden rounded-xl bg-white/80 p-6 shadow-lg backdrop-blur-sm transition-all duration-300 hover:shadow-xl dark:bg-slate-800/80'>
             <Image
               src='/Banner.png'
               alt='Digital Alchemyst Studios'
               width={720}
               height={350}
-              className='rounded-lg'
+              className='rounded-lg transition-transform duration-500 group-hover:scale-105'
+              priority
             />
           </div>
 
@@ -35,69 +36,82 @@ const HomePage = () => {
             Next-Alchemy 14.2
           </h1>
 
-          <p className='mt-4 text-xl text-steelpolished-300'>Your Ultimate Next.js Boilerplate</p>
+          <p className='mt-4 text-xl text-dark-600 dark:text-light-300'>
+            Your Ultimate Next.js Boilerplate
+          </p>
         </div>
+
+        {/* Repository Link */}
+        <Link
+          href='https://github.com/Digitl-Alchemyst/next-alchemy-14.2'
+          className='group relative mt-8'
+        >
+          <button className='flex items-center gap-2 rounded-lg bg-slate-800 px-8 py-4 text-lg font-medium text-white transition-all duration-300 hover:neon-accent1 dark:bg-slate-700 dark:hover:neon-amber'>
+            <Github className='h-5 w-5' />
+            <span>Visit Repository</span>
+            <ChevronDown className='h-5 w-5 transition-transform duration-300 group-hover:rotate-180' />
+          </button>
+        </Link>
 
         {/* Features Grid */}
         <div className='mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3'>
           {features.map((feature) => (
             <div
               key={feature}
-              className='rounded-lg p-4 text-center text-steelpolished-300 transition-all inner-glow-accent1 hover:scale-105'
+              className='group relative overflow-hidden rounded-lg bg-white/90 p-6 text-center shadow-md transition-all duration-300 inner-glow-accent1-45 hover:-translate-y-1 hover:scale-105 hover:shadow-lg dark:bg-slate-800/90 dark:inner-glow-accent1-65'
             >
-              {feature}
+              <span className='relative z-10 text-lg font-medium text-slate-700 transition-colors group-hover:text-accent2-500 dark:text-slate-300 dark:group-hover:text-accent1-400'>
+                {feature}
+              </span>
             </div>
           ))}
         </div>
 
-        {/* Animated Button */}
-        <Link
-          href='https://github.com/Digitl-Alchemyst/next-alchemy-14.2'
-          className='group relative mt-8'
-        >
-          <button className='flex items-center gap-2 rounded-lg bg-steeldark-500 px-6 py-3 text-steelpolished-300 transition-all hover:neon-accent4'>
-            <Github className='h-5 w-5' />
-            Visit Repository
-            <ChevronDown className='h-5 w-5 transition-all group-hover:rotate-180' />
-          </button>
-        </Link>
-
         {/* Info Card */}
-        <div className='mt-12 max-w-2xl rounded-xl bg-dark-700/50 p-6 text-steelpolished-300'>
-          <div className='flex items-center gap-2'>
-            <AlertCircle className='h-5 w-5 text-accent4-500' />
-            <h3 className='text-lg font-semibold'>Clean Architecture Ready</h3>
+        <div className='mt-12 max-w-2xl rounded-xl bg-white/80 p-8 shadow-lg backdrop-blur-sm transition-all duration-300 hover:shadow-xl dark:bg-slate-800/80'>
+          <div className='flex items-center gap-3'>
+            <AlertCircle className='h-6 w-6 text-accent4-500' />
+            <h3 className='text-xl font-semibold text-slate-800 dark:text-slate-200'>
+              Clean Architecture Ready
+            </h3>
           </div>
-          <p className='mt-2'>
+          <p className='mt-4 text-lg leading-relaxed text-slate-600 dark:text-slate-300'>
             This boilerplate follows clean architecture principles, providing a solid foundation
             for scalable applications with clear separation of concerns and maintainable code
             structure.
           </p>
         </div>
 
-        {/* Tailwind Plugins */}
-        <div className='mt-12 max-w-4xl rounded-xl bg-dark-700/50 p-8 text-steelpolished-300'>
-          {/* Header */}
-          <div className='mb-6 flex items-center gap-3'>
-            <div className='flex items-center gap-2'>
-              <svg
-                xmlns='http://www.w3.org/2000/svg'
-                width='24'
-                height='24'
-                viewBox='0 0 24 24'
-                fill='none'
-                stroke='currentColor'
-                strokeWidth='2'
+        {/* Tailwind Plugins Section */}
+        <div className='relative mt-12 w-full max-w-4xl overflow-hidden rounded-xl bg-white/80 p-8 shadow-lg backdrop-blur-sm transition-all duration-300 hover:shadow-xl dark:bg-slate-800/80'>
+          {/* Background Image for Frosted Glass Demo */}
+          <Image src='/labs.png' alt='Background' fill className='object-cover opacity-20' />
+
+          <div className='relative mb-6 flex items-center gap-3'>
+            <svg
+              xmlns='http://www.w3.org/2000/svg'
+              className='h-6 w-6 text-accent4-500'
+              fill='none'
+              viewBox='0 0 24 24'
+              stroke='currentColor'
+            >
+              <path
                 strokeLinecap='round'
                 strokeLinejoin='round'
-                className='h-6 w-6 text-accent4-500'
-              >
-                <path d='M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z' />
-                <path d='M12 10v6' />
-                <path d='m9 13 3-3 3 3' />
-              </svg>
-            </div>
-            <h3 className='text-2xl font-bold'>Tailwind CSS Plugins</h3>
+                strokeWidth={2}
+                d='M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z'
+              />
+              <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M12 10v6' />
+              <path
+                strokeLinecap='round'
+                strokeLinejoin='round'
+                strokeWidth={2}
+                d='m9 13 3-3 3 3'
+              />
+            </svg>
+            <h3 className='text-2xl font-bold text-slate-800 dark:text-slate-200'>
+              Tailwind CSS Plugins
+            </h3>
           </div>
 
           <p className='mb-8 text-lg text-steelpolished-400'>

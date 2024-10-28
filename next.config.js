@@ -41,6 +41,7 @@ const nextConfig = {
   experimental: {
     // * This is used for Sentry to prevent leakage to the client Read more about taint APIs here: https://nextjs.org/blog/security-nextjs-server-components-actions#server-only
     taint: true,
+    typedRoutes: true,
   },
 };
 
