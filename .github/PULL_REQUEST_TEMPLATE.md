@@ -1,9 +1,7 @@
 ## [PR Title]
 
-Example: [RFD-1]: Updated Landing Page with Boilerplate
-
 <!-- Provide a short, clear title of what this PR accomplishes -->
-<!-- Example: [RFD-1]: Updated Landing Page with Boilerplate -->
+<!-- Example: Updated Landing Page with Boilerplate -->
 
 ### **Description**
 
@@ -13,7 +11,7 @@ Example: [RFD-1]: Updated Landing Page with Boilerplate
 
 <!-- List any related issue numbers (e.g., `#123`) -->
 
-- Resolves [RFD-...]
+- Resolves #...
 
 ### **Changes Made**
 
