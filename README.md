@@ -42,13 +42,13 @@
 Run ESLint
 
 ```bash
-npm run lint
+pnpm lint
 ```
 
 Run ESLint with fixes
 
 ```bash
-npm run lint --fix
+pnpm lint --fix
 ```
 
 Check code for formatting inconsistencies with Prettier
@@ -66,25 +66,25 @@ prettier --write.
 Run Test with Jest & React Testing Library
 
 ```bash
-npm jest
+pnpm jest
 ```
 
 Run Jest in Verbose Mode
 
 ```bash
-npm jest --verbose --watch
+pnpm jest --verbose --watch
 ```
 
 Run Jest with Coverage
 
 ```bash
-npm jest --coverage
+pnpm jest --coverage
 ```
 
 Run Jest in CI Mode
 
 ```bash
-npm jest --ci
+pnpm jest --ci
 ```
 
 ## Questions and Answers
@@ -103,15 +103,15 @@ In case of any issues or questions, you can post:
 ## Next steps
 
 - [Join our Javascript Discord community to ask questions and get help][js-help]
-- [Join the Alchemy Labz Discord server to work with others contributing to this project][js-help]
+- [Join the Alchemy Labz Discord server to work with others contributing to this project][alchemy-labz]
 
 [localhost-3000]: http://localhost:3000
 [`.env.example`]: .env.example
 [nextjs-docs]: https://nextjs.org/docs
 [nextjs-github]: https://github.com/vercel/next.js/discussions
 [nextjs-discord]: https://discord.gg/nextjs
+[nextjs-vercel]: https://github.com/vercel/next.js/discussions
 [vercel-docs]: https://vercel.com/docs
-[vercel-github]: https://github.com/vercel/vercel/discussions
 [tailwind-discord]: https://discord.gg/tailwind
 [js-help]: https://discord.gg/aDumcW6ESB
 [alchemy-labz]: https://discord.gg/8MSUFpKu6n
